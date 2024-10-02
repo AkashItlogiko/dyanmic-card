@@ -8,7 +8,6 @@ h1 {
   text-align: center;
   font-size: 3rem;
 }
-
 .posts {
   width: 100%;
   padding: 1rem;
@@ -28,7 +27,14 @@ h1 {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* <div class="post">
-      <h4 class="post-title">Post title 1</h4>
-      <p class="post-body">Post Description 1</p>
-    </div> */
+@media screen and (max-width: 992px) {
+  .post {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .post {
+    width: 100%;
+  }
+}

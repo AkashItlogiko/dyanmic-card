@@ -1,41 +1,51 @@
-const posts = [
-  {
-    title: 'This is Title1',
-    body: 'This is body1',
-  },
-  {
-    title: 'This is Title2',
-    body: 'This is body2',
-  },
-  {
-    title: 'This is Title3',
-    body: 'This is body3',
-  },
-  {
-    title: 'This is Title4',
-    body: 'This is body4',
-  },
-  {
-    title: 'This is Title5',
-    body: 'This is body5',
-  },
-  {
-    title: 'This is Title6',
-    body: 'This is body6',
-  },
-  {
-    title: 'This is Title7',
-    body: 'This is body7',
-  },
-  {
-    title: 'This is Title8',
-    body: 'This is body8',
-  },
-];
+// const posts = [
+//   {
+//     title: 'This is Title1',
+//     body: 'This is body1',
+//   },
+//   {
+//     title: 'This is Title2',
+//     body: 'This is body2',
+//   },
+//   {
+//     title: 'This is Title3',
+//     body: 'This is body3',
+//   },
+//   {
+//     title: 'This is Title4',
+//     body: 'This is body4',
+//   },
+//   {
+//     title: 'This is Title5',
+//     body: 'This is body5',
+//   },
+//   {
+//     title: 'This is Title6',
+//     body: 'This is body6',
+//   },
+//   {
+//     title: 'This is Title7',
+//     body: 'This is body7',
+//   },
+//   {
+//     title: 'This is Title8',
+//     body: 'This is body8',
+//   },
+// ];
+
+const fecthData = async config => {
+  try {
+    const res = await axios(config);
+    return res.data;
+  } catch (error) {
+    throw error('Data is not fatched');
+  }
+};
 
 const postsElement = document.querySelector('.posts');
 
-const loadAllData = () => {
+const loadAllData = async () => {
+  const posts = await fecthData('https://jsonplaceholder.typicode.com/posts');
   posts.map(post => {
     const postElement = document.createElement('div');
     postElement.classList.add('post');
